@@ -1,0 +1,17 @@
+@use "../utils/" as *;
+
+.cart {
+
+    position: relative;
+
+    &__badge {
+        position: absolute;
+        top: rem(-10);
+        right: rem(-10);
+        color: var(--white);
+        background: var(--orange);
+        font-size: rem(10);
+        padding: 0 rem(6);
+        border-radius: rem(8);
+    }
+}

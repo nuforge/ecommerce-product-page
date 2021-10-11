@@ -13,16 +13,34 @@
         }
     }
 
+    &__image {
+        border-radius: rem(10);
+        height: rem(90);
+        width: rem(90);
+        overflow: hidden;
+
+        &.active {
+            border: 2px solid var(--orange);
+        }
+
+        &.active img {
+            opacity: .5;
+        }
+    }
+
     &__image--primary {
         height: rem(440);
         width: rem(440);
-        border-radius: rem(10);
     }
 
     &__image--thumb {
         height: rem(90);
         width: rem(90);
-        border-radius: rem(10);
+
+        &:hover {
+            opacity: .75;
+        }
+
     }
 
 }
