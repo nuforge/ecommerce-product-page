@@ -1,0 +1,41 @@
+@use "../utils/" as *;
+
+.description {
+    &__company {
+        text-transform: uppercase;
+        color: var(--orange);
+        font-size: rem(12);
+        font-weight: 700;
+        margin-bottom: rem(12);
+    }
+
+    & p {
+        color: var(--grayish-blue);
+    }
+
+    &__price {
+        margin: rem(26) 0;
+
+        &--current {
+            display: inline-block;
+            font-size: rem(26);
+            font-weight: 700;
+        }
+
+        &--discount {
+            display: inline-block;
+            font-size: rem(14);
+            font-weight: 700;
+            color: var(--orange);
+            padding: rem(4);
+            background: var(--pale-orange);
+            border-radius: rem(5);
+        }
+
+        &--original {
+            text-decoration: line-through;
+            color: var(--grayish-blue);
+            font-weight: 700;
+        }
+    }
+}

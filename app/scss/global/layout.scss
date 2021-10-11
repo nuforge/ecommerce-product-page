@@ -1,0 +1,19 @@
+@use "../utils/" as *;
+
+.container {
+    width: rem(375);
+    margin: rem(20) auto;
+    @include breakpoint(large) {
+        width: rem(900);
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: rem(120);
+
+    @include breakpoint(large) {
+        flex-direction: row;
+    }
+}

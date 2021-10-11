@@ -1,0 +1,54 @@
+@use "../utils/" as *;
+
+.add-to-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: rem(20);
+
+    &__counter {
+        font-weight: 700;
+        padding: rem(16);
+        border-radius: rem(8);
+        background: var(--light-grayish-blue);
+        display: flex;
+        gap: rem(20);
+        align-items: center;
+    }
+
+    &__button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        
+        &--add-to-cart {
+            flex: 1;
+            border: none;
+            background: var(--orange);
+            color: var(--white);
+            padding: rem(10);
+            border-radius: rem(10);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: rem(16);
+    
+            &:hover {
+                
+                opacity: .75;
+            }
+        }
+    }
+
+    &__button:hover{
+        opacity: .75;
+
+        
+    }
+
+    &__icon {
+        fill: #ffffff !important;
+    } 
+    
+}

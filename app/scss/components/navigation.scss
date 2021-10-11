@@ -1,0 +1,17 @@
+@use "../utils/" as *;
+
+.navigation {
+    display: flex;
+    gap: rem(18);
+
+    & a {
+        color: var(--dark-grayish-blue);
+        line-height: rem(80);
+        border-bottom: rem(5) solid transparent;
+    }
+
+    & a:hover {
+        color: var(--very-dark-blue);
+        border-bottom-color: var(--orange);
+    }
+}

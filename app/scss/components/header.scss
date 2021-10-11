@@ -1,0 +1,36 @@
+@use "../utils/" as *;
+
+.header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--grayish-blue);
+    margin-bottom: rem(30);
+
+    &__menu {
+        display: flex;
+        flex: 1;
+        gap: rem(60);
+        align-items: center;
+
+        &--logo {
+            height: rem(20);
+            width: auto;
+        }
+    }
+        
+        
+    &__utilities {
+        display: flex;
+        align-items: center;
+
+        &--icon {
+            height: rem(20);
+            width: rem(22);
+        }
+        &--avatar {
+            height: rem(50);
+            width: auto;
+            margin-left: rem(20);
+        }
+    }
+}

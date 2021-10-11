@@ -1,0 +1,28 @@
+@use "../utils/" as *;
+
+.gallery {
+
+
+    &__thumbnails {
+        display: flex;
+        gap: rem(26);
+        margin-top: rem(20);
+
+        @include breakpoint-down(large) {
+            display: none;
+        }
+    }
+
+    &__image--primary {
+        height: rem(440);
+        width: rem(440);
+        border-radius: rem(10);
+    }
+
+    &__image--thumb {
+        height: rem(90);
+        width: rem(90);
+        border-radius: rem(10);
+    }
+
+}
