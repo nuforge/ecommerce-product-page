@@ -3,15 +3,41 @@
 .navigation {
     display: flex;
     gap: rem(18);
+    flex-direction: row;
 
     & a {
         color: var(--dark-grayish-blue);
         line-height: rem(80);
         border-bottom: rem(5) solid transparent;
+        @include breakpoint-down(large) {
+            
+            line-height: 2;
+            font-weight: 700;
+        }
+
     }
 
     & a:hover {
         color: var(--very-dark-blue);
         border-bottom-color: var(--orange);
+    }
+
+    @include breakpoint-down(large) {
+        position: absolute;
+        height: 100vh;
+        width: rem(250);
+        padding-left: 1rem;
+        flex-direction: column;
+        top: 0;
+        background: var(--white);
+        gap: 0;
+        z-index: 2;
+        left: -1000px;
+        transition: all 1.5ms ease-in-out;
+
+        &.active {
+            left: 0;
+        }
+       
     }
 }

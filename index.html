@@ -22,9 +22,14 @@
   <div id ="app">
   <div class="container">
     <header class="header">
+
+      <img src="images/icon-menu.svg" alt="menu icon" class="header__menu--menu" @click="toggleMenu"/>
+
       <div class="header__menu">
         <img src="images/logo.svg" alt="sneakers logo" class="header__menu--logo"/>
-        <nav class="header__menu--nav navigation">
+        <nav :class=" {'header__menu--nav navigation' :true , 'active' : showMenu} ">
+          
+          <a ><img src="images/icon-close.svg" alt="close icon" class="header__menu--close"  @click="toggleMenu"/></a>
           <a href="#">Collections</a>
           <a href="#">Men</a>
           <a href="#">Women</a>
@@ -34,26 +39,29 @@
       </div>
       <div class="header__utilities">
         <div class="cart">
-          <img src="images/icon-cart.svg" alt="cart icon" class="cart__icon" @click="toggleMenu" />
+          <img src="images/icon-cart.svg" alt="cart icon" class="cart__icon" @click="toggleCart" />
           <div class="cart__badge" v-show="showBadge">{{ cart }}</div>
         </div>
         <img src="images/image-avatar.png" alt="avatar" class="header__utilities--avatar" />
-      </div>
-      <div class="shopping-cart" v-if="showMenu">
-        <h3>Cart</h3>
-        <div class="shopping-cart__contents" v-if="cart !== 0">
-          <img src="/images/image-product-1-thumbnail.jpg"
-              alt="Product Thumbnail" 
-              class="shopping-cart__thumbnail" />
-          <div>{{product.name}}
-            <div>${{discountedPrice.toFixed(2)}} x{{cart}} <span class="shopping-cart__contents--total">${{shoppingCartTotal.toFixed(2)}}</span></div>
+
+        <div class="shopping-cart" v-if="showCart">
+          <h3>Cart</h3>
+          <div class="shopping-cart__contents" v-if="cart !== 0">
+            <img src="/images/image-product-1-thumbnail.jpg"
+                alt="Product Thumbnail" 
+                class="shopping-cart__thumbnail" />
+            <div>{{product.name}}
+              <div>${{discountedPrice.toFixed(2)}} x{{cart}} <span class="shopping-cart__contents--total">${{shoppingCartTotal.toFixed(2)}}</span></div>
+            </div>
+            <img src="images/icon-delete.svg" alt="delete icon" class="shopping-cart__icon" @click="emptyCart" />
           </div>
-          <img src="images/icon-delete.svg" alt="delete icon" class="shopping-cart__icon" @click="emptyCart" />
+          <div class="shopping-cart__contents empty-cart" v-else>
+            You cart is Empty
+          </div>
         </div>
-        <div class="shopping-cart__contents empty-cart" v-else>
-          You cart is Empty
-        </div>
+
       </div>
+      
     </header>
     <main class="main">
       <section class="gallery">
@@ -101,7 +109,8 @@
   let app = Vue.createApp ({
     data() {
       return {
-        showMenu: null,
+        showCart: null,
+        showMenu: false,
         counter: 0,
         cart: 0,
         currentPhoto: 0,
@@ -137,24 +146,22 @@
         this.counter = 0;
       },
       changeGalleryImage(newImage) {
-        // let image = document.getElementById(this.product.photos[this.currentPhoto]);
-        // let image2 = document.getElementById(this.product.photos[newImage]);
-        // image.classList.remove('active');
-        // image2.classList.add('active');
-        // image.src = "images/" + newImage + ".jpg";
         this.currentPhoto = newImage;
       },
       emptyCart() {
         this.cart = 0;
       },
+      toggleCart() {
+        this.showCart = !this.showCart;
+      },
+      closeCart() {
+        this.showCart = false;        
+      },
+      openCart() {
+        this.showCart = true;
+      },
       toggleMenu() {
         this.showMenu = !this.showMenu;
-      },
-      closeMenu() {
-        this.showMenu = false;        
-      },
-      openMenu() {
-        this.showMenu = true;
       }
       
     },
