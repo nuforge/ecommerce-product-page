@@ -2,12 +2,13 @@
 
 .cart {
 
+    cursor: pointer;
     position: relative;
 
     &__badge {
         position: absolute;
-        top: rem(-10);
-        right: rem(-10);
+        top: rem(-6);
+        right: rem(-6);
         color: var(--white);
         background: var(--orange);
         font-size: rem(10);

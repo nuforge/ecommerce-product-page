@@ -11,9 +11,10 @@
 .main {
     display: flex;
     flex-direction: column;
-    gap: rem(120);
+    gap: rem(20);
 
     @include breakpoint(large) {
+        gap: rem(120);
         flex-direction: row;
     }
 }
