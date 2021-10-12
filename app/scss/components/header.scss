@@ -5,6 +5,7 @@
     align-items: center;
     border-bottom: 1px solid var(--grayish-blue);
     margin-bottom: rem(30);
+    position: relative;
 
     &__menu {
         display: flex;
@@ -18,10 +19,21 @@
         }
 
         
-        &--menu {
+        &--menu  {
             cursor: pointer;
             margin-right: 1rem;
 
+            @include breakpoint(large) {
+                display: none;
+            }
+
+        }
+
+        &--close {
+            width: rem(18);
+            height: rem(18);
+            margin: rem(18) 0 ;
+            cursor: pointer;
             @include breakpoint(large) {
                 display: none;
             }

@@ -4,6 +4,7 @@
     display: flex;
     gap: rem(18);
     flex-direction: row;
+    transition: all 500ms ease-in-out;
 
     & a {
         color: var(--dark-grayish-blue);
@@ -32,11 +33,11 @@
         background: var(--white);
         gap: 0;
         z-index: 2;
-        left: -1000px;
-        transition: all 1.5ms ease-in-out;
+        left: rem(-1000);
 
         &.active {
             left: 0;
+            transition: translateY(1000);
         }
        
     }

@@ -22,14 +22,11 @@
   <div id ="app">
   <div class="container">
     <header class="header">
-
       <img src="images/icon-menu.svg" alt="menu icon" class="header__menu--menu" @click="toggleMenu"/>
-
       <div class="header__menu">
         <img src="images/logo.svg" alt="sneakers logo" class="header__menu--logo"/>
         <nav :class=" {'header__menu--nav navigation' :true , 'active' : showMenu} ">
-          
-          <a ><img src="images/icon-close.svg" alt="close icon" class="header__menu--close"  @click="toggleMenu"/></a>
+          <img src="images/icon-close.svg" alt="close icon" class="header__menu--close"  @click="toggleMenu"/>
           <a href="#">Collections</a>
           <a href="#">Men</a>
           <a href="#">Women</a>
@@ -65,8 +62,9 @@
     </header>
     <main class="main">
       <section class="gallery">
-        <img :src="currentImageURL" alt="Product Image" class="gallery__image--primary" id="image-product-primary" />
-        
+        <div class="gallery__navigation" >
+          <img :src="currentImageURL" alt="Product Image" class="gallery__image--primary" id="image-product-primary" />
+        </div>
         <div class="gallery__thumbnails">
           <div :class="{active: (currentPhoto === index), gallery__image: true }" v-for="(photo, index) in product.photos">
             <img 
@@ -110,7 +108,7 @@
     data() {
       return {
         showCart: null,
-        showMenu: false,
+        showMenu: true,
         counter: 0,
         cart: 0,
         currentPhoto: 0,
