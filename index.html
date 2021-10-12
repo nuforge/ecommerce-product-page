@@ -34,10 +34,25 @@
       </div>
       <div class="header__utilities">
         <div class="cart">
-          <img src="images/icon-cart.svg" alt="cart icon" class="cart__icon" />
+          <img src="images/icon-cart.svg" alt="cart icon" class="cart__icon" @click="toggleMenu" />
           <div class="cart__badge" v-show="showBadge">{{ cart }}</div>
         </div>
         <img src="images/image-avatar.png" alt="avatar" class="header__utilities--avatar" />
+      </div>
+      <div class="shopping-cart" v-if="showMenu">
+        <h3>Cart</h3>
+        <div class="shopping-cart__contents" v-if="cart !== 0">
+          <img src="/images/image-product-1-thumbnail.jpg"
+              alt="Product Thumbnail" 
+              class="shopping-cart__thumbnail" />
+          <div>{{product.name}}
+            <div>${{discountedPrice.toFixed(2)}} x{{cart}} <span class="shopping-cart__contents--total">${{shoppingCartTotal.toFixed(2)}}</span></div>
+          </div>
+          <img src="images/icon-delete.svg" alt="delete icon" class="shopping-cart__icon" @click="emptyCart" />
+        </div>
+        <div class="shopping-cart__contents" v-else>
+          Cart is Empty
+        </div>
       </div>
     </header>
     <main class="main">
@@ -86,6 +101,7 @@
   let app = Vue.createApp ({
     data() {
       return {
+        showMenu: null,
         counter: 0,
         cart: 0,
         currentPhoto: 0,
@@ -128,6 +144,18 @@
         // image2.classList.add('active');
         // image.src = "images/" + newImage + ".jpg";
         this.currentPhoto = newImage;
+      },
+      emptyCart() {
+        this.cart = 0;
+      },
+      toggleMenu() {
+        this.showMenu = !this.showMenu;
+      },
+      closeMenu() {
+        this.showMenu = false;        
+      },
+      openMenu() {
+        this.showMenu = true;
       }
       
     },
@@ -143,7 +171,10 @@
         },
         currentImageURL() {
           return '/images/' + this.product.photos[this.currentPhoto] + '.jpg';
-        }
+        },
+        shoppingCartTotal() {
+          return (this.discountedPrice * this.cart);
+        },
       }
   });
 
