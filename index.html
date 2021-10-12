@@ -50,8 +50,8 @@
           </div>
           <img src="images/icon-delete.svg" alt="delete icon" class="shopping-cart__icon" @click="emptyCart" />
         </div>
-        <div class="shopping-cart__contents" v-else>
-          Cart is Empty
+        <div class="shopping-cart__contents empty-cart" v-else>
+          You cart is Empty
         </div>
       </div>
     </header>
@@ -135,7 +135,6 @@
       addToCard() {
         this.cart += this.counter;
         this.counter = 0;
-        console.log(this.cart);
       },
       changeGalleryImage(newImage) {
         // let image = document.getElementById(this.product.photos[this.currentPhoto]);

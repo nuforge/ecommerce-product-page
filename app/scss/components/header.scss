@@ -28,6 +28,13 @@
             height: rem(50);
             width: auto;
             margin-left: rem(20);
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+
+            &:hover {
+                border-color: var(--orange);
+            }
         }
     }
 }
