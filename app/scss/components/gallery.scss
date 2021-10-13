@@ -2,6 +2,36 @@
 
 .gallery {
 
+    &__navigation {
+        position: relative;
+    }
+
+    &__button {
+        border: none;
+        cursor: pointer;
+        background: var(--white);
+        border-radius: 50%;
+        width: rem(30);
+        height: rem(30);
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &--previous {
+            left: rem(8);
+        }
+        &--next {
+            right: rem(8);
+        }
+
+        @include breakpoint(large) {
+            display: none;
+        }
+    }
+
     &__thumbnails {
         display: flex;
         gap: rem(26);

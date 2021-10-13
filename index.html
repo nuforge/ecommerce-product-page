@@ -63,6 +63,8 @@
     <main class="main">
       <section class="gallery">
         <div class="gallery__navigation" >
+          <button class="gallery__button gallery__button--previous" @click="previousImage"><img src="/images/icon-previous.svg" alt="Previous Image"/></button>
+          <button class="gallery__button gallery__button--next" @click="nextImage" ><img src="/images/icon-next.svg" alt="Next Image"/></button>
           <img :src="currentImageURL" alt="Product Image" class="gallery__image--primary" id="image-product-primary" />
         </div>
         <div class="gallery__thumbnails">
@@ -108,7 +110,7 @@
     data() {
       return {
         showCart: null,
-        showMenu: true,
+        showMenu: false,
         counter: 0,
         cart: 0,
         currentPhoto: 0,
@@ -131,6 +133,12 @@
       }
     },
     methods: {
+      previousImage() {
+        this.currentPhoto = (this.currentPhoto > 0) ? this.currentPhoto - 1 : this.product.photos.length - 1;
+      },
+      nextImage() {
+        this.currentPhoto = (this.currentPhoto < (this.product.photos.length - 1)) ? this.currentPhoto + 1 : 0;
+      },
       increaseCounter() {
         this.counter++;
       },
