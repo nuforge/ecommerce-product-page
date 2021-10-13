@@ -51,7 +51,10 @@
               <div>${{discountedPrice.toFixed(2)}} x{{cart}} <span class="shopping-cart__contents--total">${{shoppingCartTotal.toFixed(2)}}</span></div>
             </div>
             <img src="images/icon-delete.svg" alt="delete icon" class="shopping-cart__icon" @click="emptyCart" />
+            
           </div>
+          
+          <button class="button button__orange shopping-cart__checkout-button" v-if="cart !== 0">Checkout</button>
           <div class="shopping-cart__contents empty-cart" v-else>
             You cart is Empty
           </div>
@@ -93,7 +96,7 @@
           {{ counter }}
           <button class="add-to-cart__button add-to-cart__button--plus":onClick="increaseCounter"><img src="images/icon-plus.svg" alt="plus icon"/></button>
         </div>
-        <button class="add-to-cart__button--add-to-cart" @click="addToCard"><img src="images/icon-cart.svg" alt="cart icon" class="add-to-cart__icon" />Add to cart</button>
+        <button class="button__orange add-to-cart__button--add-to-cart" @click="addToCard"><img src="images/icon-cart.svg" alt="cart icon" class="add-to-cart__icon" />Add to cart</button>
     </div>
     </section>
   </main>
@@ -112,7 +115,7 @@
         showCart: null,
         showMenu: false,
         counter: 0,
-        cart: 0,
+        cart: 2,
         currentPhoto: 0,
         product: {
           name: "Fall Limited Edition Sneakers",
